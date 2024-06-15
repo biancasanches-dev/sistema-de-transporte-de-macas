@@ -1,0 +1,40 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# Diretório de saída do Maven
+/target/
+
+# Arquivos de logs
+*.log
+
+# Arquivos de configuração locais e sensíveis
+/src/main/resources/application.properties
+/src/main/resources/application.yml
+/src/main/resources/application-*.properties
+/src/main/resources/application-*.yml
+
+# Diretórios do IDE
+/.idea/
+/*.iml
+/.project
+/.classpath
+/.settings/
+/*.iws
+/*.ipr
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
