@@ -5,36 +5,53 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>Transporte de macas</title>
 </head>
-<body>
-    <div class="card">
-        <h2>Relatar incidente</h2>
-
-        <form th:action="@{/solicitacoes/{id}/relatarIncidente(id=${solicitacao.id})}" th:object="${incidente}" method="post">
-            <div class="form-group">
-                <label for="solicitacao">Solicitação: </label>
-                <p th:text="${solicitacao.dataHora}" id="solicitacao" class="formatDate"></p>
+<body class="w-100 vh-100 d-flex flex-column">
+    <nav class="navbar bg-primary mb-3 py-3">
+        <div class="container">
+            <div class="d-flex align-items-center gap-4">
+                <img th:src="@{/static/maca.png}" alt="">
+                <a class="navbar-brand link-light" href="dashboard">Sistema de transporte de macas - HGCA</a>
             </div>
-            <div>
-                <label for="paciente">Paciente: </label>
-                <p th:text="${solicitacao.paciente}" id="paciente"></p>
+            <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="${usuario.nome}">
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/logout">Sair</a></li>
+                </ul>
             </div>
-            <div>
-                <label for="origem">Origem: </label>
-                <p th:text="${solicitacao.origem}" id="origem"></p>
-            </div>
-            <div>
-                <label for="destino">Destino:</label>
-                <p th:text="${solicitacao.destino}" id="destino"></p>
-            </div>
-            <div>
-                <label for="descricao"></label>
-                <textarea th:field="*{descricao}" class="" placeholder="Descrição do incidente" id="descricao" required></textarea>
-            </div>
-            <button>Enviar</button>
-        </form>
-
-    </div>
-
+        </div>
+    </nav>
+    <main class="container d-flex justify-content-center align-items-center  flex-grow-1">
+        <div class="card w-50 p-4 mt-4">
+            <h2 class="mb-4">Relatar incidente</h2>
+            <form th:action="@{/solicitacoes/{id}/relatarIncidente(id=${solicitacao.id})}" th:object="${incidente}" method="post" class="d-flex flex-column gap-4">
+                <div class="form-group">
+                    <label for="solicitacao" class="fw-bold mb-2">Solicitação: </label>
+                    <p th:text="${solicitacao.dataHora}" id="solicitacao" class="formatDate"></p>
+                </div>
+                <div>
+                    <label for="paciente" class="fw-bold mb-2">Paciente: </label>
+                    <p th:text="${solicitacao.paciente}" id="paciente"></p>
+                </div>
+                <div>
+                    <label for="origem" class="fw-bold mb-2">Origem: </label>
+                    <p th:text="${solicitacao.origem}" id="origem"></p>
+                </div>
+                <div>
+                    <label for="destino" class="fw-bold mb-2">Destino:</label>
+                    <p th:text="${solicitacao.destino}" id="destino"></p>
+                </div>
+                <div>
+                    <label for="descricao" class="fw-bold mb-2">Descrição</label>
+                    <textarea th:field="*{descricao}" class="w-100" placeholder="Descrição do incidente" id="descricao" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+            </form>
+        </div>
+    </main>
+    <footer class="bg-primary py-3 d-flex justify-content-center">
+        <span class="text-light">Feito por Bianca. 2024©</span>
+    </footer>
     <script>
         function formatDate(isoDateTime) {
             const [date, timeAndMicroseconds] = isoDateTime.split('T');

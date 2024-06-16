@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -36,12 +37,15 @@ public class DashboardService implements IncidenteService, PacienteService {
 
         List<Integer> statusList = Arrays.asList(2, 3);
         List<Solicitacao> getSolicitacoesFechadas = solicitacaoService.getSolicitacoesByStatusList(statusList);
+        Collections.sort(getSolicitacoesFechadas);
         data.setSolicitacoesEncerradas(getSolicitacoesFechadas);
 
         List<Solicitacao> getSolicitacoesEmAndamento = solicitacaoService.getSolicitacoesByStatus(1);
+        Collections.sort(getSolicitacoesEmAndamento);
         data.setSolicitacoesEmAndamento(getSolicitacoesEmAndamento);
 
         List<Incidente> getIncidentes = getAllIncidentes();
+        Collections.sort(getIncidentes);
         data.setIncidentes(getIncidentes);
 
         return data;
@@ -54,12 +58,7 @@ public class DashboardService implements IncidenteService, PacienteService {
 
     @Override
     public Paciente salvarPaciente(Paciente paciente) {
-        Paciente pacienteExistente = pacienteRepository.findByNome(paciente.getNome());
-        if (pacienteExistente != null) {
-            return pacienteExistente;
-        } else {
-            return pacienteRepository.save(paciente);
-        }
+        return pacienteRepository.save(paciente);
     }
 
     //IncidenteService
@@ -76,5 +75,9 @@ public class DashboardService implements IncidenteService, PacienteService {
     @Override
     public Incidente saveIncidente(Incidente incidente) {
         return incidenteRepository.save(incidente);
+    }
+
+    public void deletarIncidente(Long id) {
+        incidenteRepository.deleteById(id);
     }
 }

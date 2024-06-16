@@ -15,10 +15,12 @@ public class DashboardController {
 
     private final DashboardService dashboardService;
     private final SolicitacaoService solicitacaoService;
+    private final HttpSession httpSession;
 
-    public DashboardController(DashboardService dashboardService, SolicitacaoService solicitacaoService) {
+    public DashboardController(DashboardService dashboardService, SolicitacaoService solicitacaoService, HttpSession httpSession) {
         this.dashboardService = dashboardService;
         this.solicitacaoService = solicitacaoService;
+        this.httpSession = httpSession;
     }
 
     private void getData(Model model) {
@@ -38,7 +40,13 @@ public class DashboardController {
     }
 
     @GetMapping("/nova-solicitacao")
-    public String novaSolicitacao(Model model) {
+    public String novaSolicitacao(Model model, HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("user");
+        if (usuario == null) {
+            return "redirect:/login";
+        }
+        getData(model);
+        model.addAttribute("usuario", usuario);
         model.addAttribute("solicitacao", new Solicitacao());
         return "novaSolicitacao";
     }
@@ -57,14 +65,24 @@ public class DashboardController {
     }
 
     @GetMapping("/solicitacoes")
-    public String getSolicitacoes(Model model) {
+    public String getSolicitacoes(Model model, HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("user");
+        if (usuario == null) {
+            return "redirect:/login";
+        }
         getData(model);
+        model.addAttribute("usuario", usuario);
         return "solicitacoes";
     }
 
     @GetMapping("/solicitacoes/{id}/relatarIncidente")
-    public String getRelatarIncidente(@PathVariable Long id, Model model) {
+    public String getRelatarIncidente(@PathVariable Long id, Model model, HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("user");
         Solicitacao solicitacao = solicitacaoService.getSolicitacaoById(id);
+        if (usuario == null) {
+            return "redirect:/login";
+        }
+        model.addAttribute("usuario", usuario);
         model.addAttribute("solicitacao", solicitacao);
         model.addAttribute("incidente", new Incidente());
         return "relatarIncidente";
@@ -85,14 +103,25 @@ public class DashboardController {
     }
 
     @GetMapping("/incidentes")
-    public String getIncidentes(Model model) {
+    public String getIncidentes(Model model, HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("user");
+        if (usuario == null) {
+            return "redirect:/login";
+        }
         getData(model);
+        model.addAttribute("usuario", usuario);
         return "incidentes";
     }
 
     @GetMapping("/incidentes/{id}")
-    public String getIncidente(@PathVariable Long id, Model model) {
+    public String getIncidente(@PathVariable Long id, Model model, HttpSession session) {
         Incidente incidente = dashboardService.getIncidenteById(id);
+        Usuario usuario = (Usuario) session.getAttribute("user");
+        if (usuario == null) {
+            return "redirect:/login";
+        }
+        getData(model);
+        model.addAttribute("usuario", usuario);
         model.addAttribute("incidente", incidente);
         return "incidente";
     }

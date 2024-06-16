@@ -25,6 +25,10 @@ target/
 /src/main/resources/application-*.properties
 /src/main/resources/application-*.yml
 
+# Ignorar o arquivo DatabaseSeeder
+/src/main/java/com/example/hospital/DatabaseSeeder.java
+
+
 # Diretórios do IDE
 /.idea/
 /*.iml

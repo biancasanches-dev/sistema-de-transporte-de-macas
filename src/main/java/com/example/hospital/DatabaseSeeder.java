@@ -1,14 +1,13 @@
 package com.example.hospital;
 
 import com.example.hospital.model.*;
-import com.example.hospital.service.DashboardService;
-import com.example.hospital.service.PacienteService;
-import com.example.hospital.service.SolicitacaoService;
-import com.example.hospital.service.UsuarioService;
+import com.example.hospital.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
@@ -25,7 +24,6 @@ public class DatabaseSeeder implements CommandLineRunner {
 
     @Autowired
     private DashboardService dashboardService;
-
 
     private List<Solicitacao> solicitacoes;
 
@@ -183,6 +181,14 @@ public class DatabaseSeeder implements CommandLineRunner {
 //
 //        solicitacaoService.deleteSolicitacao(15);
 //        solicitacaoService.deleteSolicitacao(18);
+
+//        dashboardService.deletarIncidente(Long.valueOf(1));
+//        dashboardService.deletarIncidente(Long.valueOf(2));
+
+
+
+
+
 
     }
 

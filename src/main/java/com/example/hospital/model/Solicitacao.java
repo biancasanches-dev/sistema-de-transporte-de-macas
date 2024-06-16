@@ -28,7 +28,7 @@ public class Solicitacao implements Comparable<Solicitacao> {
 
     @Override
     public int compareTo(Solicitacao outraSolicitacao) {
-        return this.dataHora.compareTo(outraSolicitacao.dataHora);
+        return outraSolicitacao.dataHora.compareTo(this.dataHora);
     }
 
     public long getId() {
