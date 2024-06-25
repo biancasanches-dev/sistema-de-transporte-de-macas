@@ -28,6 +28,10 @@ public class Paciente {
         this.nome = nome;
     }
 
+    public long getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "" + nome + "";

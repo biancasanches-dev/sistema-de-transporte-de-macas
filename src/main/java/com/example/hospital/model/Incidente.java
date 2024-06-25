@@ -34,6 +34,6 @@ public class Incidente implements Comparable<Incidente> {
 
     @Override
     public int compareTo(Incidente incidente) {
-        return incidente.getSolicitacao().getDataHora().compareTo(this.solicitacao.getDataHora());
+        return this.solicitacao.getDataHora().compareTo(incidente.getSolicitacao().getDataHora());
     }
 }

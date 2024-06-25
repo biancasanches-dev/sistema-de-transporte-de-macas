@@ -104,5 +104,9 @@ public class Solicitacao implements Comparable<Solicitacao> {
     public void setDataHora(LocalDateTime dataHora) {
         this.dataHora = dataHora;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
 
