@@ -1,6 +1,6 @@
 package com.example.hospital.repository;
 
-import com.example.hospital.model.Usuario;
+import com.example.hospital.model.usuario.Usuario;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

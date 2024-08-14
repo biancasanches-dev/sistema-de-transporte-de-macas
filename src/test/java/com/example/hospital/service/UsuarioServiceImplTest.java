@@ -3,9 +3,9 @@ package com.example.hospital.service;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.example.hospital.model.Maqueiro;
-import com.example.hospital.model.ProfissionalDeSaude;
-import com.example.hospital.model.Usuario;
+import com.example.hospital.model.usuario.Maqueiro;
+import com.example.hospital.model.usuario.ProfissionalDeSaude;
+import com.example.hospital.model.usuario.Usuario;
 import com.example.hospital.repository.UsuarioRepository;
 
 import com.example.hospital.service.impl.UsuarioServiceImpl;

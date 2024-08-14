@@ -1,10 +1,14 @@
-package com.example.hospital.model;
+package com.example.hospital.model.usuario;
 
 import java.util.Objects;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo_usuario")
 public abstract class Usuario {
@@ -18,36 +22,7 @@ public abstract class Usuario {
 
     protected String role = setRole();
 
-    public Usuario() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-   public String getSenha() {
-        return senha;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+    public Usuario() {}
 
     public String setRole() {
         return this.role = "USER";

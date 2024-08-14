@@ -1,6 +1,6 @@
 package com.example.hospital.service;
 
-import com.example.hospital.model.Paciente;
+import com.example.hospital.model.paciente.Paciente;
 
 public interface PacienteService {
     Paciente buscarPaciente(Paciente paciente);

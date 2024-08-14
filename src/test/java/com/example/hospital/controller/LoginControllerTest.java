@@ -1,7 +1,7 @@
 package com.example.hospital.controller;
 
-import com.example.hospital.model.Maqueiro;
-import com.example.hospital.model.Usuario;
+import com.example.hospital.model.usuario.Maqueiro;
+import com.example.hospital.model.usuario.Usuario;
 import com.example.hospital.service.impl.UsuarioServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -4,6 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDateTime;
 
+import com.example.hospital.model.enums.Prioridade;
+import com.example.hospital.model.enums.Status;
+import com.example.hospital.model.paciente.Paciente;
+import com.example.hospital.model.solicitacao.Solicitacao;
+import com.example.hospital.model.usuario.Maqueiro;
 import org.junit.jupiter.api.Test;
 
 public class SolicitacaoTest {

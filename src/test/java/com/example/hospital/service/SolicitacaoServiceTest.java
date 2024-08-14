@@ -1,7 +1,7 @@
 package com.example.hospital.service;
 
-import com.example.hospital.model.Maqueiro;
-import com.example.hospital.model.Solicitacao;
+import com.example.hospital.model.usuario.Maqueiro;
+import com.example.hospital.model.solicitacao.Solicitacao;
 import com.example.hospital.repository.SolicitacaoRepository;
 import com.example.hospital.service.impl.SolicitacaoServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static com.example.hospital.model.Status.*;
+import static com.example.hospital.model.enums.Status.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;

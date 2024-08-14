@@ -1,6 +1,6 @@
 package com.example.hospital.service;
 
-import com.example.hospital.model.Incidente;
+import com.example.hospital.model.incidente.Incidente;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,8 +1,8 @@
 package com.example.hospital.service;
 
-import com.example.hospital.model.DashboardData;
-import com.example.hospital.model.Incidente;
-import com.example.hospital.model.Solicitacao;
+import com.example.hospital.model.dashboard.DashboardData;
+import com.example.hospital.model.incidente.Incidente;
+import com.example.hospital.model.solicitacao.Solicitacao;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;

@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.hospital.model.dashboard.DashboardData;
+import com.example.hospital.model.incidente.Incidente;
+import com.example.hospital.model.solicitacao.Solicitacao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

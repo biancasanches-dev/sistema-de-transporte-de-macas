@@ -2,6 +2,7 @@ package com.example.hospital.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.example.hospital.model.usuario.ProfissionalDeSaude;
 import org.junit.jupiter.api.Test;
 
 public class ProfissionalDeSaudeTest {

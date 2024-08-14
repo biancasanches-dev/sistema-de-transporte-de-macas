@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDateTime;
 
+import com.example.hospital.model.incidente.Incidente;
+import com.example.hospital.model.solicitacao.Solicitacao;
 import org.junit.jupiter.api.Test;
 
 public class IncidenteTest {

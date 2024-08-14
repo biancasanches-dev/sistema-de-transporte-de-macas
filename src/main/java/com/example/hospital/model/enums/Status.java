@@ -1,4 +1,4 @@
-package com.example.hospital.model;
+package com.example.hospital.model.enums;
 
 public enum Status {
     AGUARDANDO_TRANSPORTE, EM_TRANSPORTE, CONCLUIDO, RECUSADA;

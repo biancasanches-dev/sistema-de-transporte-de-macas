@@ -1,6 +1,6 @@
 package com.example.hospital.service.impl;
 
-import com.example.hospital.model.Paciente;
+import com.example.hospital.model.paciente.Paciente;
 import com.example.hospital.repository.PacienteRepository;
 import com.example.hospital.service.PacienteService;
 import org.springframework.stereotype.Service;

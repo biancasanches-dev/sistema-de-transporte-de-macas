@@ -1,6 +1,10 @@
 package com.example.hospital.controller;
 
-import com.example.hospital.model.*;
+import com.example.hospital.model.dashboard.DashboardData;
+import com.example.hospital.model.incidente.Incidente;
+import com.example.hospital.model.solicitacao.Solicitacao;
+import com.example.hospital.model.usuario.Maqueiro;
+import com.example.hospital.model.usuario.Usuario;
 import com.example.hospital.service.*;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;

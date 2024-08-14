@@ -1,6 +1,6 @@
 package com.example.hospital.service.impl;
 
-import com.example.hospital.model.Usuario;
+import com.example.hospital.model.usuario.Usuario;
 import com.example.hospital.repository.UsuarioRepository;
 
 import com.example.hospital.service.UsuarioService;

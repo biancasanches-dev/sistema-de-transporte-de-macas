@@ -1,6 +1,6 @@
 package com.example.hospital.controller;
 
-import com.example.hospital.model.Usuario;
+import com.example.hospital.model.usuario.Usuario;
 import com.example.hospital.service.impl.UsuarioServiceImpl;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;

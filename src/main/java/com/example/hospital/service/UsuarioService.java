@@ -1,6 +1,6 @@
 package com.example.hospital.service;
 
-import com.example.hospital.model.Usuario;
+import com.example.hospital.model.usuario.Usuario;
 
 public interface UsuarioService {
     Usuario getUsuarioPorNome(String usuario);

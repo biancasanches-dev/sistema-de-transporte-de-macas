@@ -1,6 +1,10 @@
 package com.example.hospital;
 
-import com.example.hospital.model.*;
+import com.example.hospital.model.incidente.Incidente;
+import com.example.hospital.model.paciente.Paciente;
+import com.example.hospital.model.solicitacao.Solicitacao;
+import com.example.hospital.model.usuario.Maqueiro;
+import com.example.hospital.model.usuario.ProfissionalDeSaude;
 import com.example.hospital.service.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

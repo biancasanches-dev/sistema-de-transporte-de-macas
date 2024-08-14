@@ -1,8 +1,7 @@
 package com.example.hospital.repository;
 
-import com.example.hospital.model.Prioridade;
-import com.example.hospital.model.Solicitacao;
-import com.example.hospital.model.Status;
+import com.example.hospital.model.solicitacao.Solicitacao;
+import com.example.hospital.model.enums.Status;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

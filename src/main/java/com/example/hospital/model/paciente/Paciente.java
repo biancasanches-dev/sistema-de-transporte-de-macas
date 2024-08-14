@@ -1,11 +1,15 @@
-package com.example.hospital.model;
+package com.example.hospital.model.paciente;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class Paciente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,24 +21,10 @@ public class Paciente {
         this.nome = nome;
     }
 
-    public Paciente() {
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public long getId() {
-        return id;
-    }
+    public Paciente() {}
 
     @Override
     public String toString() {
         return "" + nome + "";
     }
-
 }

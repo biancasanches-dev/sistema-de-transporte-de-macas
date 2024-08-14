@@ -1,6 +1,9 @@
 package com.example.hospital.service.impl;
 
-import com.example.hospital.model.*;
+import com.example.hospital.model.enums.Status;
+import com.example.hospital.model.solicitacao.Solicitacao;
+import com.example.hospital.model.solicitacao.SolicitacaoPrioridadeComparator;
+import com.example.hospital.model.usuario.Maqueiro;
 import com.example.hospital.repository.SolicitacaoRepository;
 import com.example.hospital.service.SolicitacaoService;
 import org.springframework.stereotype.Service;

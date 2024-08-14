@@ -1,14 +1,16 @@
 package com.example.hospital.controller;
 
-import com.example.hospital.model.*;
+import com.example.hospital.model.dashboard.DashboardData;
+import com.example.hospital.model.incidente.Incidente;
+import com.example.hospital.model.solicitacao.Solicitacao;
+import com.example.hospital.model.usuario.Maqueiro;
+import com.example.hospital.model.usuario.ProfissionalDeSaude;
+import com.example.hospital.model.usuario.Usuario;
 import com.example.hospital.service.DashboardService;
 import com.example.hospital.service.IncidenteService;
 import com.example.hospital.service.SolicitacaoService;
-import com.example.hospital.service.impl.IncidenteServiceImpl;
-import com.example.hospital.service.impl.SolicitacaoServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;

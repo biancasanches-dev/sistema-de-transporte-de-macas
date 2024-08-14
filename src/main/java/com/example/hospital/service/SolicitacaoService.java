@@ -1,7 +1,7 @@
 package com.example.hospital.service;
 
-import com.example.hospital.model.Maqueiro;
-import com.example.hospital.model.Solicitacao;
+import com.example.hospital.model.usuario.Maqueiro;
+import com.example.hospital.model.solicitacao.Solicitacao;
 
 import java.util.List;
 
