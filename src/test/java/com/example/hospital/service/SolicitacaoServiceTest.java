@@ -2,17 +2,15 @@ package com.example.hospital.service;
 
 import com.example.hospital.model.Maqueiro;
 import com.example.hospital.model.Solicitacao;
-import com.example.hospital.model.Status;
 import com.example.hospital.repository.SolicitacaoRepository;
+import com.example.hospital.service.impl.SolicitacaoServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,7 +25,7 @@ public class SolicitacaoServiceTest {
     private SolicitacaoRepository solicitacaoRepository;
 
     @InjectMocks
-    private SolicitacaoService solicitacaoService;
+    private SolicitacaoServiceImpl solicitacaoService;
 
     @BeforeEach
     public void setUp() {

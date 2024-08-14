@@ -2,23 +2,25 @@ package com.example.hospital;
 
 import com.example.hospital.model.*;
 import com.example.hospital.service.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Component
 public class DatabaseSeeder implements CommandLineRunner {
 
-    @Autowired
-    private UsuarioService usuarioService;
-    @Autowired
-    private SolicitacaoService solicitacaoService;
-    @Autowired
-    private DashboardService dashboardService;
+    private final UsuarioService usuarioService;
+    private final SolicitacaoService solicitacaoService;
+    private final PacienteService pacienteService;
+    private final IncidenteService incidenteService;
+
+    public DatabaseSeeder(UsuarioService usuarioService, SolicitacaoService solicitacaoService, PacienteService pacienteService, IncidenteService incidenteService) {
+        this.usuarioService = usuarioService;
+        this.solicitacaoService = solicitacaoService;
+        this.pacienteService = pacienteService;
+        this.incidenteService = incidenteService;
+    }
 
     @Override
     public void run(String... args) throws Exception {
@@ -41,7 +43,7 @@ public class DatabaseSeeder implements CommandLineRunner {
 
         // Criar solicitações de exemplo
         Paciente paciente1 = new Paciente("João");
-        dashboardService.salvarPaciente(paciente1);
+        pacienteService.salvarPaciente(paciente1);
         Solicitacao solicitacao1 = new Solicitacao();
         solicitacao1.setPaciente(paciente1);
         solicitacao1.setOrigem("Sala 101");
@@ -57,9 +59,9 @@ public class DatabaseSeeder implements CommandLineRunner {
         incidente.setSolicitacao(solicitacao1);
         incidente.setDescricao("Descrição do incidente");
 
-        dashboardService.saveIncidente(incidente);
+        incidenteService.saveIncidente(incidente);
 
         //Todos os services tem métodos de busca, atualização e deleção
-        dashboardService.deletarIncidente(Long.valueOf(1));
+        incidenteService.deletarIncidente(Long.valueOf(1));
     }
 }

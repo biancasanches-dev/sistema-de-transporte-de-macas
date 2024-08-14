@@ -1,7 +1,7 @@
 package com.example.hospital.controller;
 
 import com.example.hospital.model.Usuario;
-import com.example.hospital.service.UsuarioService;
+import com.example.hospital.service.impl.UsuarioServiceImpl;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LoginController {
 
     @Autowired
-    private UsuarioService usuarioService;
+    private UsuarioServiceImpl usuarioService;
 
     @GetMapping("/login")
     public String loginPage() {

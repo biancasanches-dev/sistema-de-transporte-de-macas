@@ -2,10 +2,11 @@ package com.example.hospital.service;
 
 import com.example.hospital.model.DashboardData;
 import com.example.hospital.model.Incidente;
-import com.example.hospital.model.Paciente;
 import com.example.hospital.model.Solicitacao;
 import com.example.hospital.repository.IncidenteRepository;
 import com.example.hospital.repository.PacienteRepository;
+import com.example.hospital.service.impl.SolicitacaoServiceImpl;
+import com.example.hospital.service.impl.UsuarioServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -22,10 +23,10 @@ import static org.mockito.Mockito.*;
 public class DashboardServiceTest {
 
     @Mock
-    private UsuarioService usuarioService;
+    private UsuarioServiceImpl usuarioService;
 
     @Mock
-    private SolicitacaoService solicitacaoService;
+    private SolicitacaoServiceImpl solicitacaoService;
 
     @Mock
     private PacienteRepository pacienteRepository;

@@ -1,8 +1,7 @@
 package com.example.hospital.controller;
 
 import com.example.hospital.model.*;
-import com.example.hospital.service.DashboardService;
-import com.example.hospital.service.SolicitacaoService;
+import com.example.hospital.service.*;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,12 +13,14 @@ public class DashboardController {
 
     private final DashboardService dashboardService;
     private final SolicitacaoService solicitacaoService;
-    private final HttpSession httpSession;
+    private final IncidenteService incidenteService;
+    private final PacienteService pacienteService;
 
-    public DashboardController(DashboardService dashboardService, SolicitacaoService solicitacaoService, HttpSession httpSession) {
+    public DashboardController(DashboardService dashboardService, SolicitacaoService solicitacaoService, IncidenteService incidenteService, PacienteService pacienteService) {
         this.dashboardService = dashboardService;
         this.solicitacaoService = solicitacaoService;
-        this.httpSession = httpSession;
+        this.incidenteService = incidenteService;
+        this.pacienteService = pacienteService;
     }
 
     private void getData(Model model) {
@@ -53,7 +54,7 @@ public class DashboardController {
     @PostMapping("/nova-solicitacao")
     public String cadastrarSolicitacao(@ModelAttribute Solicitacao solicitacao, RedirectAttributes redirectAttributes) {
         try {
-            dashboardService.salvarPaciente(solicitacao.getPaciente());
+            pacienteService.salvarPaciente(solicitacao.getPaciente());
             solicitacao.setStatus(0);
             solicitacaoService.saveSolicitacao(solicitacao);
             redirectAttributes.addFlashAttribute("successMessage", "Solicitação enviada com sucesso!");
@@ -92,7 +93,7 @@ public class DashboardController {
         try {
             Solicitacao solicitacao = solicitacaoService.getSolicitacaoById(id);
             incidente.setSolicitacao(solicitacao);
-            dashboardService.saveIncidente(incidente);
+            incidenteService.saveIncidente(incidente);
             getData(model);
             redirectAttributes.addFlashAttribute("successMessage", "Solicitação enviada com sucesso!");
         } catch (Exception e) {
@@ -114,7 +115,7 @@ public class DashboardController {
 
     @GetMapping("/incidentes/{id}")
     public String getIncidente(@PathVariable Long id, Model model, HttpSession session) {
-        Incidente incidente = dashboardService.getIncidenteById(id);
+        Incidente incidente = incidenteService.getIncidenteById(id);
         Usuario usuario = (Usuario) session.getAttribute("user");
         if (usuario == null) {
             return "redirect:/login";

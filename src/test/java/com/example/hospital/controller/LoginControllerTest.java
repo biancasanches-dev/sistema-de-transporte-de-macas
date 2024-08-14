@@ -2,7 +2,7 @@ package com.example.hospital.controller;
 
 import com.example.hospital.model.Maqueiro;
 import com.example.hospital.model.Usuario;
-import com.example.hospital.service.UsuarioService;
+import com.example.hospital.service.impl.UsuarioServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
@@ -20,7 +20,7 @@ public class LoginControllerTest {
     private WebTestClient webTestClient;
 
     @MockBean
-    private UsuarioService usuarioService;
+    private UsuarioServiceImpl usuarioService;
 
     @Test
     public void testLoginSuccess() {

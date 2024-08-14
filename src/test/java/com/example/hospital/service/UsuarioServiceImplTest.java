@@ -8,6 +8,7 @@ import com.example.hospital.model.ProfissionalDeSaude;
 import com.example.hospital.model.Usuario;
 import com.example.hospital.repository.UsuarioRepository;
 
+import com.example.hospital.service.impl.UsuarioServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -15,13 +16,13 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(MockitoExtension.class)
-public class UsuarioServiceTest {
+public class UsuarioServiceImplTest {
 
     @Mock
     private UsuarioRepository usuarioRepository;
 
     @InjectMocks
-    private UsuarioService usuarioService;
+    private UsuarioServiceImpl usuarioService;
 
     @Test
     public void testGetUsuarioPorNomeMaqueiro() {

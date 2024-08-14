@@ -2,15 +2,17 @@ package com.example.hospital.controller;
 
 import com.example.hospital.model.*;
 import com.example.hospital.service.DashboardService;
+import com.example.hospital.service.IncidenteService;
 import com.example.hospital.service.SolicitacaoService;
+import com.example.hospital.service.impl.IncidenteServiceImpl;
+import com.example.hospital.service.impl.SolicitacaoServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
-
-import java.util.Collections;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -26,6 +28,9 @@ public class DashboardControllerTest {
 
     @MockBean
     private SolicitacaoService solicitacaoService;
+
+    @MockBean
+    private IncidenteService incidenteService;
 
     @Test
     public void testGetDashboard() {
@@ -90,7 +95,7 @@ public class DashboardControllerTest {
         solicitacao.setId(id);
 
         when(solicitacaoService.getSolicitacaoById(id)).thenReturn(solicitacao);
-        when(dashboardService.saveIncidente(any(Incidente.class))).thenReturn(incidente);
+        when(incidenteService.saveIncidente(any(Incidente.class))).thenReturn(incidente);
 
         webTestClient.post().uri("/solicitacoes/{id}/relatarIncidente", id)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -117,7 +122,7 @@ public class DashboardControllerTest {
         Long id = 1L;
         Incidente incidente = new Incidente();
 
-        when(dashboardService.getIncidenteById(id)).thenReturn(incidente);
+        when(incidenteService.getIncidenteById(id)).thenReturn(incidente);
         webTestClient.get().uri("/incidentes/{id}", id)
                 .exchange()
                 .expectStatus().isOk()
