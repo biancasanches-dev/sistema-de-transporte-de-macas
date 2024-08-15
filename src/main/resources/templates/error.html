@@ -19,8 +19,8 @@
                             <span class="display-1 fw-bold bsb-flip-h">4</span>
                         </h2>
                         <h3 class="h2 mb-2">Oops! Ocorreu um erro.</h3>
-                        <p class="mb-5">A página procurada não foi encontrada.</p>
-                        <a class="btn bsb-btn-5xl btn-primary rounded-pill px-5 fs-6 m-0" href="/" role="button">Voltar para início</a>
+                        <p class="mb-5" th:text="${errorMessage}"></p>
+                        <a class="btn bsb-btn-xl btn-primary" href="/" role="button">Voltar para início</a>
                     </div>
                 </div>
             </div>

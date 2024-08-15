@@ -25,7 +25,7 @@
     <main class="container d-flex justify-content-center align-items-center flex-grow-1">
         <div class="card w-50 p-4 mt-4">
             <h1>Cadastrar solicitação</h1>
-            <form action="#" th:action="@{/nova-solicitacao}" th:object="${solicitacao}" method="post" class="d-flex flex-column gap-4">
+            <form action="#" th:action="@{/solicitacoes/cadastrar}" th:object="${solicitacao}" method="post" class="d-flex flex-column gap-4">
                 <div class="form-group">
                     <label for="paciente">Paciente</label>
                     <input type="text" th:field="*{paciente.nome}" id="paciente" class="form-control" placeholder="Digite o nome do paciente" required>
