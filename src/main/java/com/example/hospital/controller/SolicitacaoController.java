@@ -28,40 +28,26 @@ public class SolicitacaoController {
     }
 
     @GetMapping
-    public String getSolicitacoes(Model model, HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("user");
-        if (usuario == null) {
-            return "redirect:/login";
-        }
+    public String getSolicitacoes(Model model) {
         DashboardData data = dashboardService.getDashboardData();
         model.addAttribute("data", data);
-        model.addAttribute("usuario", usuario);
         return "solicitacoes";
     }
 
     @GetMapping("/cadastrar")
-    public String novaSolicitacao(Model model, HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("user");
-        if (usuario == null) {
-            return "redirect:/login";
-        }
+    public String novaSolicitacao(Model model) {
         DashboardData data = dashboardService.getDashboardData();
         model.addAttribute("data", data);
-        model.addAttribute("usuario", usuario);
         model.addAttribute("solicitacao", new Solicitacao());
         return "novaSolicitacao";
     }
 
     @PostMapping("/cadastrar")
-    public String cadastrarSolicitacao(@ModelAttribute Solicitacao solicitacao, RedirectAttributes redirectAttributes) {
-        try {
-            pacienteService.salvarPaciente(solicitacao.getPaciente());
-            solicitacao.setStatus(0);
-            solicitacaoService.saveSolicitacao(solicitacao);
-            redirectAttributes.addFlashAttribute("successMessage", "Solicitação enviada com sucesso!");
-        } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("errorMessage", "Erro ao enviar a solicitação.");
-        }
+    public String cadastrarSolicitacao(@ModelAttribute Solicitacao solicitacao) {
+        pacienteService.salvarPaciente(solicitacao.getPaciente());
+        solicitacao.setStatus(0);
+        solicitacaoService.saveSolicitacao(solicitacao);
+
         return "redirect:/";
     }
 
