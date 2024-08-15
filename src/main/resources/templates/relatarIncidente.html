@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +11,7 @@
         <div class="container">
             <div class="d-flex align-items-center gap-4">
                 <img th:src="@{/static/maca.png}" alt="">
-                <a class="navbar-brand link-light" href="/dashboard">Sistema de transporte de macas - HGCA</a>
+                <a class="navbar-brand link-light" href="/">Sistema de transporte de macas - HGCA</a>
             </div>
             <div class="dropdown">
                 <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="${usuario.nome}">
@@ -24,7 +25,7 @@
     <main class="container d-flex justify-content-center align-items-center  flex-grow-1">
         <div class="card w-50 p-4 mt-4">
             <h2 class="mb-4">Relatar incidente</h2>
-            <form th:action="@{/solicitacoes/{id}/relatarIncidente(id=${solicitacao.id})}" th:object="${incidente}" method="post" class="d-flex flex-column gap-4">
+            <form th:action="@{/incidentes/solicitacao/{id}/relatar(id=${solicitacao.id})}" th:object="${incidente}" method="post" class="d-flex flex-column gap-4">
                 <div class="form-group">
                     <label for="solicitacao" class="fw-bold mb-2">Solicitação: </label>
                     <p th:text="${solicitacao.dataHora}" id="solicitacao" class="formatDate"></p>

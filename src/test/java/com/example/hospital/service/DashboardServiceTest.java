@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.ui.Model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -72,13 +73,14 @@ public class DashboardServiceTest {
         when(incidenteRepository.findAll()).thenReturn(incidentes);
 
         // Executando o método a ser testado
-        DashboardData dashboardData = dashboardService.getDashboardData();
+        Model model = mock(Model.class);
+        dashboardService.getDashboardData();
 
         // Verificando resultados esperados
-        assertEquals(solicitacoesAbertas, dashboardData.getSolicitacoesAbertas());
-        assertEquals(solicitacoesEmAndamento, dashboardData.getSolicitacoesEmAndamento());
-        assertEquals(solicitacoesEncerradas, dashboardData.getSolicitacoesEncerradas());
-        assertEquals(incidentes, dashboardData.getIncidentes());
+        verify(model).addAttribute("solicitacoesAbertas", solicitacoesAbertas);
+        verify(model).addAttribute("solicitacoesEmAndamento", solicitacoesEmAndamento);
+        verify(model).addAttribute("solicitacoesEncerradas", solicitacoesEncerradas);
+        verify(model).addAttribute("incidentes", incidentes);
 
         // Verificando interações com os mocks
         verify(solicitacaoService, times(1)).getSolicitacoesByPrioridade();

@@ -66,6 +66,6 @@ public class DatabaseSeeder implements CommandLineRunner {
         incidenteService.saveIncidente(incidente);
 
         //Todos os services tem métodos de busca, atualização e deleção
-        incidenteService.deletarIncidente(Long.valueOf(1));
+//        incidenteService.deletarIncidente(Long.valueOf(1));
     }
 }

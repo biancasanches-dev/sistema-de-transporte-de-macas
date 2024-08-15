@@ -11,7 +11,7 @@
         <div class="container">
             <div class="d-flex align-items-center gap-4">
                 <img src="/static/maca.png" alt="">
-                <a class="navbar-brand link-light" href="/dashboard">Sistema de transporte de macas - HGCA</a>
+                <a class="navbar-brand link-light" href="/">Sistema de transporte de macas - HGCA</a>
             </div>
             <div class="dropdown">
                 <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="${usuario.nome}">
@@ -27,7 +27,7 @@
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h1>Home</h1>
                 <button th:disabled="${usuario.getRole() == 'MAQUEIRO'}" class="btn btn-secondary btn-lg">
-                    <a href="nova-solicitacao" class="link-underline link-underline-opacity-0 link-light">Nova solicitação</a>
+                    <a href="/solicitacoes" class="link-underline link-underline-opacity-0 link-light">Nova solicitação</a>
                 </button>
             </div>
             <div class="d-flex w-100 justify-content-around mb-4">
