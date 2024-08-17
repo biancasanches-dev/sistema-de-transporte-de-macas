@@ -52,15 +52,11 @@ public class SolicitacaoController {
     }
 
     @PostMapping("/cadastrar")
-    public String cadastrarSolicitacao(@ModelAttribute Solicitacao solicitacao, RedirectAttributes redirectAttributes) {
-        try {
-            pacienteService.salvarPaciente(solicitacao.getPaciente());
-            solicitacao.setStatus(0);
-            solicitacaoService.saveSolicitacao(solicitacao);
-            redirectAttributes.addFlashAttribute("successMessage", "Solicitação enviada com sucesso!");
-        } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("errorMessage", "Erro ao enviar a solicitação.");
-        }
+    public String cadastrarSolicitacao(@ModelAttribute Solicitacao solicitacao) {
+        pacienteService.salvarPaciente(solicitacao.getPaciente());
+        solicitacao.setStatus(0);
+        solicitacaoService.saveSolicitacao(solicitacao);
+
         return "redirect:/";
     }
 

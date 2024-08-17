@@ -1,7 +1,6 @@
 package com.example.hospital.controller;
 
 import com.example.hospital.model.dashboard.DashboardData;
-import com.example.hospital.model.usuario.Usuario;
 import com.example.hospital.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +24,7 @@ public class DashboardController {
         DashboardData data = dashboardService.getDashboardData();
         model.addAttribute("data", data);
         model.addAttribute("usuario", user);
+
         return "home";
     }
 

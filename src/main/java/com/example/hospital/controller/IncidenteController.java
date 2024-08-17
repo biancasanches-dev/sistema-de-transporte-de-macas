@@ -3,7 +3,6 @@ package com.example.hospital.controller;
 import com.example.hospital.model.dashboard.DashboardData;
 import com.example.hospital.model.incidente.Incidente;
 import com.example.hospital.model.solicitacao.Solicitacao;
-import com.example.hospital.model.usuario.Usuario;
 import com.example.hospital.service.DashboardService;
 import com.example.hospital.service.IncidenteService;
 import com.example.hospital.service.SolicitacaoService;
@@ -12,7 +11,6 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/incidentes")
@@ -63,17 +61,13 @@ public class IncidenteController {
     }
 
     @PostMapping("/solicitacao/{id}/relatar")
-    public String cadastrarIncidente(@PathVariable Long id, @ModelAttribute Incidente incidente, Model model, RedirectAttributes redirectAttributes) {
-        try {
-            Solicitacao solicitacao = solicitacaoService.getSolicitacaoById(id);
-            incidente.setSolicitacao(solicitacao);
-            incidenteService.saveIncidente(incidente);
-            DashboardData data = dashboardService.getDashboardData();
-            model.addAttribute("data", data);
-            redirectAttributes.addFlashAttribute("successMessage", "Solicitação enviada com sucesso!");
-        } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("errorMessage", "Erro ao enviar a solicitação.");
-        }
+    public String cadastrarIncidente(@PathVariable Long id, @ModelAttribute Incidente incidente, Model model) {
+        Solicitacao solicitacao = solicitacaoService.getSolicitacaoById(id);
+        incidente.setSolicitacao(solicitacao);
+        incidenteService.saveIncidente(incidente);
+        DashboardData data = dashboardService.getDashboardData();
+        model.addAttribute("data", data);
+
         return "redirect:/incidentes";
     }
 
