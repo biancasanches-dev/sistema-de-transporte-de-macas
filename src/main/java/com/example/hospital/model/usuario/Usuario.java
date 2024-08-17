@@ -1,14 +1,16 @@
 package com.example.hospital.model.usuario;
 
-import java.util.Objects;
-
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo_usuario")
 public abstract class Usuario {
@@ -17,26 +19,12 @@ public abstract class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true, nullable = false)
-    private String nome;
-    private String senha;
+    private String username;
+    private String password;
 
     protected String role = setRole();
 
-    public Usuario() {}
-
     public String setRole() {
         return this.role = "USER";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Usuario usuario)) return false;
-        return id == usuario.id && Objects.equals(getNome(), usuario.getNome());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, getNome());
     }
 }

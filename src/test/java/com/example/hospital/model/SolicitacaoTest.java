@@ -26,7 +26,7 @@ public class SolicitacaoTest {
     @Test
     public void testSetAndGetMaqueiro() {
         Maqueiro maqueiro = new Maqueiro();
-        maqueiro.setNome("Carlos");
+        maqueiro.setUsername("Carlos");
         Solicitacao solicitacao = new Solicitacao();
         solicitacao.setMaqueiro(maqueiro);
 

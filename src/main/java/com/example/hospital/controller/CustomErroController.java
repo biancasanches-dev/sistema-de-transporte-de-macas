@@ -12,7 +12,4 @@ public class CustomErroController implements ErrorController {
         return "error";
     }
 
-    public String getErrorPath() {
-        return "/error";
-    }
 }

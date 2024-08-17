@@ -10,8 +10,8 @@ public class ProfissionalDeSaudeTest {
     @Test
     public void testProfissionalDeSaudeRole() {
         ProfissionalDeSaude profissional = new ProfissionalDeSaude();
-        profissional.setNome("Ana");
-        profissional.setSenha("senha456");
+        profissional.setUsername("Ana");
+        profissional.setPassword("senha456");
 
         assertEquals("PROFISSIONAL", profissional.getRole());
     }

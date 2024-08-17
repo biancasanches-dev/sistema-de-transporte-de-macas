@@ -25,10 +25,9 @@ public class LoginControllerTest {
     @Test
     public void testLoginSuccess() {
         Usuario mockUsuario = new Maqueiro();
-        mockUsuario.setNome("user");
-        mockUsuario.setSenha("password");
+        mockUsuario.setUsername("user");
+        mockUsuario.setPassword("password");
 
-        when(usuarioService.autenticarUsuario(anyString(), anyString())).thenReturn(true);
         when(usuarioService.getUsuarioPorNome(anyString())).thenReturn(mockUsuario);
 
         webTestClient.post()
@@ -42,8 +41,6 @@ public class LoginControllerTest {
 
     @Test
     public void testLoginFailure() {
-        when(usuarioService.autenticarUsuario(anyString(), anyString())).thenReturn(false);
-
         webTestClient.post()
                 .uri("/login")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)

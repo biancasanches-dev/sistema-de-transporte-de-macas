@@ -1,6 +1,5 @@
 package com.example.hospital.service;
 
-import com.example.hospital.model.dashboard.DashboardData;
 import com.example.hospital.model.incidente.Incidente;
 import com.example.hospital.model.solicitacao.Solicitacao;
 import com.example.hospital.repository.IncidenteRepository;

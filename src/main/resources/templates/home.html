@@ -14,8 +14,7 @@
                 <a class="navbar-brand link-light" href="/">Sistema de transporte de macas - HGCA</a>
             </div>
             <div class="dropdown">
-                <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="${usuario.nome}">
-                </button>
+                <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="${usuario.username}"></button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/logout">Sair</a></li>
                 </ul>
@@ -70,13 +69,19 @@
                     <tbody>
                         <tr th:each="solAndamento : ${data.solicitacoesEmAndamento}">
                             <th th:text="${solAndamento.dataHora}" class="formatDate"></th>
-                            <th th:text="${solAndamento.maqueiro != null ? solAndamento.maqueiro.nome : 'N/A'}"></th>
+                            <th th:text="${solAndamento.maqueiro != null ? solAndamento.maqueiro.username : 'N/A'}"></th>
                             <th th:text="${solAndamento.paciente.nome}"></th>
                             <td th:text="${solAndamento.origem}"></td>
                             <td th:text="${solAndamento.destino}"></td>
                             <td th:text="${solAndamento.status}"></td>
                             <td>
-                                <button th:if="${usuario.role == 'MAQUEIRO'}" th:onclick="'window.location.href=\'/solicitacoes/' + ${solAndamento.id} + '/concluir\''" class="btn btn-primary">Concluir</button>
+                                <button
+                                        th:if="${usuario.role == 'MAQUEIRO'}"
+                                        th:onclick="'window.location.href=\'/solicitacoes/' + ${solAndamento.id} + '/concluir\''"
+                                        class="btn btn-primary"
+                                >
+                                    Concluir
+                                </button>
                             </td>
                         </tr>
                     </tbody>

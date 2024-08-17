@@ -15,7 +15,6 @@ import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
-import org.springframework.ui.Model;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -38,7 +37,7 @@ public class DashboardControllerTest {
     @Test
     public void testGetDashboard() {
         Usuario usuario = new Maqueiro();
-        usuario.setNome("user");
+        usuario.setUsername("user");
 
         when(dashboardService.getDashboardData()).thenReturn(new DashboardData());
         webTestClient.get().uri("/dashboard")
@@ -50,7 +49,7 @@ public class DashboardControllerTest {
     @Test
     public void testNovaSolicitacao() {
         Usuario usuario = new ProfissionalDeSaude();
-        usuario.setNome("user");
+        usuario.setUsername("user");
 
         when(solicitacaoService.saveSolicitacao(any(Solicitacao.class))).thenReturn(new Solicitacao());
         webTestClient.post().uri("/nova-solicitacao")
@@ -64,7 +63,7 @@ public class DashboardControllerTest {
     @Test
     public void testGetSolicitacoes() {
         Usuario usuario = new Maqueiro();
-        usuario.setNome("user");
+        usuario.setUsername("user");
 
         when(dashboardService.getDashboardData()).thenReturn(new DashboardData());
         webTestClient.get().uri("/solicitacoes")
@@ -77,7 +76,7 @@ public class DashboardControllerTest {
     public void testGetRelatarIncidente() {
         Long id = 1L;
         Usuario usuario = new ProfissionalDeSaude();
-        usuario.setNome("user");
+        usuario.setUsername("user");
 
         Solicitacao solicitacao = new Solicitacao();
         solicitacao.setId(id);
@@ -111,7 +110,7 @@ public class DashboardControllerTest {
     @Test
     public void testGetIncidentes() {
         Usuario usuario = new Maqueiro();
-        usuario.setNome("user");
+        usuario.setUsername("user");
 
         when(dashboardService.getDashboardData()).thenReturn(new DashboardData());
         webTestClient.get().uri("/incidentes")
