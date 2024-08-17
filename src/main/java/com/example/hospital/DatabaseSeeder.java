@@ -32,15 +32,15 @@ public class DatabaseSeeder implements CommandLineRunner {
         //Criar usuários garantindo que não sejam duplicados
         if (usuarioService.getUsuarioPorNome("usuario1") == null) {
             Maqueiro usuario1 = new Maqueiro();
-            usuario1.setNome("usuario1");
-            usuario1.setSenha("senha1");
+            usuario1.setUsername("usuario1");
+            usuario1.setPassword("senha1");
 
             usuarioService.saveUsuario(usuario1);
         }
         if (usuarioService.getUsuarioPorNome("usuario3") == null) {
             ProfissionalDeSaude usuario3 = new ProfissionalDeSaude();
-            usuario3.setNome("usuario3");
-            usuario3.setSenha("senha3");
+            usuario3.setUsername("usuario3");
+            usuario3.setPassword("senha3");
 
             usuarioService.saveUsuario(usuario3);
         }

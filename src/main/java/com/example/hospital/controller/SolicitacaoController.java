@@ -7,6 +7,7 @@ import com.example.hospital.model.usuario.Usuario;
 import com.example.hospital.service.DashboardService;
 import com.example.hospital.service.PacienteService;
 import com.example.hospital.service.SolicitacaoService;
+import com.example.hospital.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,17 +21,24 @@ public class SolicitacaoController {
     private final SolicitacaoService solicitacaoService;
     private final DashboardService dashboardService;
     private final PacienteService pacienteService;
+    private final UsuarioService usuarioService;
 
-    public SolicitacaoController(SolicitacaoService solicitacaoService, DashboardService dashboardService, PacienteService pacienteService) {
+    public SolicitacaoController(SolicitacaoService solicitacaoService, DashboardService dashboardService, PacienteService pacienteService, UsuarioService usuarioService) {
         this.solicitacaoService = solicitacaoService;
         this.dashboardService = dashboardService;
         this.pacienteService = pacienteService;
+        this.usuarioService = usuarioService;
+    }
+
+    private Usuario getUsuario() {
+        return usuarioService.getUsuarioLogado();
     }
 
     @GetMapping
     public String getSolicitacoes(Model model) {
         DashboardData data = dashboardService.getDashboardData();
         model.addAttribute("data", data);
+        model.addAttribute("usuario", getUsuario());
         return "solicitacoes";
     }
 
@@ -38,6 +46,7 @@ public class SolicitacaoController {
     public String novaSolicitacao(Model model) {
         DashboardData data = dashboardService.getDashboardData();
         model.addAttribute("data", data);
+        model.addAttribute("usuario", getUsuario());
         model.addAttribute("solicitacao", new Solicitacao());
         return "novaSolicitacao";
     }
@@ -52,10 +61,9 @@ public class SolicitacaoController {
     }
 
     @GetMapping("/{id}/aceitar")
-    public String aceitarSolicitacao(@PathVariable Long id, HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("user");
-        if (usuario instanceof Maqueiro) {
-            solicitacaoService.aceitarSolicitacao(id, (Maqueiro) usuario);
+    public String aceitarSolicitacao(@PathVariable Long id) {
+        if (getUsuario() instanceof Maqueiro) {
+            solicitacaoService.aceitarSolicitacao(id, (Maqueiro) getUsuario());
             return "redirect:/";
         }
         else {
@@ -64,10 +72,9 @@ public class SolicitacaoController {
     }
 
     @GetMapping("/{id}/recusar")
-    public String recusarSolicitacao(@PathVariable Long id, HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("user");
-        if (usuario instanceof Maqueiro) {
-            solicitacaoService.recusarSolicitacao(id, (Maqueiro) usuario);
+    public String recusarSolicitacao(@PathVariable Long id) {
+        if (getUsuario() instanceof Maqueiro) {
+            solicitacaoService.recusarSolicitacao(id, (Maqueiro) getUsuario());
             return "redirect:/";
         }
         else {
@@ -76,9 +83,8 @@ public class SolicitacaoController {
     }
 
     @GetMapping("/{id}/concluir")
-    public String concluirSolicitacao(@PathVariable Long id, HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("user");
-        if (usuario instanceof Maqueiro) {
+    public String concluirSolicitacao(@PathVariable Long id) {
+        if (getUsuario() instanceof Maqueiro) {
             solicitacaoService.concluirSolicitacao(id);
             return "redirect:/";
         }

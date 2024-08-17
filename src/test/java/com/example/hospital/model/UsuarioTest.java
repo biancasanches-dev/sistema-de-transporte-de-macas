@@ -12,11 +12,11 @@ public class UsuarioTest {
     public void testUsuarioEquality() {
         Usuario usuario1 = new Maqueiro();
         usuario1.setId(1L);
-        usuario1.setNome("João");
+        usuario1.setUsername("João");
 
         Usuario usuario2 = new Maqueiro();
         usuario2.setId(1L);
-        usuario2.setNome("João");
+        usuario2.setUsername("João");
 
         assertEquals(usuario1, usuario2);
         assertEquals(usuario1.hashCode(), usuario2.hashCode());
@@ -26,11 +26,11 @@ public class UsuarioTest {
     public void testUsuarioInequality() {
         Usuario usuario1 = new Maqueiro();
         usuario1.setId(1L);
-        usuario1.setNome("João");
+        usuario1.setUsername("João");
 
         Usuario usuario2 = new Maqueiro();
         usuario2.setId(2L);
-        usuario2.setNome("Maria");
+        usuario2.setUsername("Maria");
 
         assertNotEquals(usuario1, usuario2);
     }

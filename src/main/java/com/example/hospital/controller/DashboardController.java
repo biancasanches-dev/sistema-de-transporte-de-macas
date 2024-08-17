@@ -11,15 +11,20 @@ import org.springframework.web.bind.annotation.*;
 public class DashboardController {
 
     private final DashboardService dashboardService;
+    private final UsuarioService usuarioService;
 
-    public DashboardController(DashboardService dashboardService) {
+    public DashboardController(DashboardService dashboardService, UsuarioService usuarioService) {
         this.dashboardService = dashboardService;
+        this.usuarioService = usuarioService;
     }
 
     @GetMapping
     public String getDashboard(Model model) {
+        Usuario user = usuarioService.getUsuarioLogado();
         DashboardData data = dashboardService.getDashboardData();
         model.addAttribute("data", data);
+        model.addAttribute("usuario", user);
+
         return "home";
     }
 

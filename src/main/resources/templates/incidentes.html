@@ -14,7 +14,7 @@
                 <a class="navbar-brand link-light" href="/">Sistema de transporte de macas - HGCA</a>
             </div>
             <div class="dropdown">
-                <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="${usuario.nome}">
+                <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="${usuario.username}">
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/logout">Sair</a></li>
@@ -41,7 +41,7 @@
                     <tbody>
                     <tr th:each="incidente : ${data.getIncidentes()}">
                         <th th:text="${incidente.solicitacao.dataHora}" class="formatDate"></th>
-                        <th th:text="${incidente.solicitacao.maqueiro != null ? incidente.solicitacao.maqueiro.nome : 'N/A'}"></th>
+                        <th th:text="${incidente.solicitacao.maqueiro != null ? incidente.solicitacao.maqueiro.username : 'N/A'}"></th>
                         <th th:text="${incidente.solicitacao.paciente}"></th>
                         <td th:text="${incidente.solicitacao.origem}"></td>
                         <td th:text="${incidente.solicitacao.destino}"></td>

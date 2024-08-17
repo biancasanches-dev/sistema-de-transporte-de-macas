@@ -13,7 +13,7 @@
                 <a class="navbar-brand link-light" href="/">Sistema de transporte de macas - HGCA</a>
             </div>
             <div class="dropdown">
-                <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="${usuario.nome}">
+                <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="${usuario.username}">
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/logout">Sair</a></li>
@@ -39,7 +39,7 @@
                 <tbody>
                     <tr th:each="solFechadas : ${data.solicitacoesEncerradas}">
                         <th th:text="${solFechadas.dataHora}" class="formatDate"></th>
-                        <th th:text="${solFechadas.maqueiro != null ? solFechadas.maqueiro.nome : 'N/A'}"></th>
+                        <th th:text="${solFechadas.maqueiro != null ? solFechadas.maqueiro.username : 'N/A'}"></th>
                         <th th:text="${solFechadas.paciente}"></th>
                         <td th:text="${solFechadas.origem}"></td>
                         <td th:text="${solFechadas.destino}"></td>
