@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class IncidenteServiceImpl implements IncidenteService {
 
-    private IncidenteRepository incidenteRepository;
+    private final IncidenteRepository incidenteRepository;
 
     public IncidenteServiceImpl(IncidenteRepository incidenteRepository) {
         this.incidenteRepository = incidenteRepository;

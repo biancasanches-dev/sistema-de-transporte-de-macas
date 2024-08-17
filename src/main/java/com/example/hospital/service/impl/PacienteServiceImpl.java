@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PacienteServiceImpl implements PacienteService {
 
-    private PacienteRepository pacienteRepository;
+    private final PacienteRepository pacienteRepository;
 
     public PacienteServiceImpl(PacienteRepository pacienteRepository) {
         this.pacienteRepository = pacienteRepository;

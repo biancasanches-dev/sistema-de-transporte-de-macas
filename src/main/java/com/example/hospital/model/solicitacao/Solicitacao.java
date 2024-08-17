@@ -5,7 +5,9 @@ import com.example.hospital.model.enums.Prioridade;
 import com.example.hospital.model.enums.Status;
 import com.example.hospital.model.usuario.Maqueiro;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -13,6 +15,8 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Solicitacao implements Comparable<Solicitacao> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,8 +34,6 @@ public class Solicitacao implements Comparable<Solicitacao> {
     private Status status;
     private LocalDateTime dataHora = LocalDateTime.now();
     private boolean isAceita;
-
-    public Solicitacao() {}
 
     @Override
     public int compareTo(Solicitacao outraSolicitacao) {

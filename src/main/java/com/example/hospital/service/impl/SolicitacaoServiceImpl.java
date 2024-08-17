@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class SolicitacaoServiceImpl implements SolicitacaoService {
 
-    private SolicitacaoRepository solicitacaoRepository;
+    private final SolicitacaoRepository solicitacaoRepository;
 
     public SolicitacaoServiceImpl(SolicitacaoRepository solicitacaoRepository) {
         this.solicitacaoRepository = solicitacaoRepository;
